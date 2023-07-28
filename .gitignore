@@ -1,0 +1,7 @@
+letsencrypt
+logs
+www
+certs
+ca-data
+.env
+

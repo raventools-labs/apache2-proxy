@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  proxy:
+    build: .
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./sites-available:/etc/apache2/sites-available
+      - ./logs:/var/log/apache2/
+      - ./letsencrypt:/etc/letsencrypt
+      - ./www:/var/www/html
+      - ./certs:/etc/apache2/certs
+      - ./ca-data:/etc/apache2/ca-tools/data
+    env_file:
+      - .env
+
